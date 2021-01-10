@@ -1,0 +1,164 @@
+// Customer User: Create User, connect to database and do Insert, Select, Update, Delete
+
+import com.mysql.cj.jdbc.Driver;
+
+import java.sql.*;
+
+public class User {
+
+    public String firstName;
+    public String lastName;
+    public String username;
+    public String password;
+    public String email;
+
+    //Database connection (with time correction)
+    private String dbURL = "jdbc:mysql://192.168.2.2:3306/database?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
+    private final static String dbUsername = "root";
+    private final static String dbPassword = "";
+
+    String sql;
+    PreparedStatement statement;
+    ResultSet result;
+
+    public User(String firstName, String lastName, String username, String password, String email) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+
+        try {
+            DriverManager.registerDriver(new Driver());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+    }
+
+    private Connection openDbConnection(){
+        Connection conn = null;
+        try {
+
+            conn = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
+
+            if (conn != null) {
+                System.out.println("Connected");
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return conn;
+    }
+
+    private void closeDbConnection(Connection conn){
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public boolean insert(){
+        boolean inserted = false;
+        Connection conn = this.openDbConnection();
+
+        try {
+            sql = "INSERT INTO Users (firstName, lastName, username, password, email) VALUES (?, ?, ?, ?, ?)";
+
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, this.firstName);
+            statement.setString(2, this.lastName);
+            statement.setString(3, this.username);
+            statement.setString(4, this.password);
+            statement.setString(5, this.email);
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                inserted=true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        this.closeDbConnection(conn);
+        return inserted;
+    }
+
+
+    public void select(){
+        //SELECT
+        Connection conn = this.openDbConnection();
+
+        try {
+
+            sql = "SELECT * FROM Users";
+
+            Statement statement2 = conn.createStatement();
+            result = statement.executeQuery(sql);
+
+            int count = 0;
+
+            while (result.next()) {
+                String name = result.getString(2);
+                String pass = result.getString(3);
+                String fullname = result.getString("fullname");
+                String email = result.getString("email");
+
+                String output = "User #%d: %s - %s - %s - %s";
+                System.out.println(String.format(output, ++count, name, pass, fullname, email));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        this.closeDbConnection(conn);
+    }
+
+
+    public void update(){
+        //UPDATE
+        Connection conn = this.openDbConnection();
+
+        try {
+            String sql = "UPDATE Users SET password=?, fullname=?, email=? WHERE username=?";
+
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, "123456789");
+            statement.setString(2, "William Henry Bill Gates");
+            statement.setString(3, "bill.gates@microsoft.com");
+            statement.setString(4, "bill");
+
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("An existing user was updated successfully!");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        this.closeDbConnection(conn);
+    }
+
+    public void delete() {
+        //DELETE
+        Connection conn = this.openDbConnection();
+
+        try {
+            sql = "DELETE FROM Users WHERE username=?";
+
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, "bill");
+
+            int rowsDeleted = statement.executeUpdate();
+            if (rowsDeleted > 0) {
+                System.out.println("A user was deleted successfully!");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        this.closeDbConnection(conn);
+    }
+
+}
+

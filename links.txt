@@ -1,0 +1,42 @@
+https://www.codejava.net/java-se/jdbc/jdbc-tutorial-sql-insert-select-update-and-delete-examples
+
+http://forum.wampserver.com/read.php?2,138545
+
+http://127.0.0.1:8080/DockerJavaWebApp-1.0-SNAPSHOT/
+
+
+https://www.codejava.net/java-ee/servlet/handling-html-form-data-with-java-servlet
+
+https://dzone.com/articles/building-simple-data-access-layer-using-jdbc
+
+https://openclassrooms.com/en/courses/5684146-create-web-applications-efficiently-with-the-spring-boot-mvc-framework/6156961-organize-your-application-code-in-three-tier-architecture
+
+https://docs.oracle.com/cd/F49540_01/DOC/java.815/a64685/basic1.htm#1014331
+declare jdbc drivers
+
+----
+DAO
+https://www.baeldung.com/java-dao-pattern
+https://www.oracle.com/java/technologies/dataaccessobject.html
+https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm
+
+JSP-Servlet
+http://users.nccs.gov/~fwang2/web/jsp.html
+
+---
+
+You could use <jsp:include> for this.
+
+<jsp:include page="/servletURL" />
+It's however usually the other way round. You call the servlet which in turn forwards to the JSP to display the results. Create a Servlet which does something like following in doGet() method.
+
+request.setAttribute("result", "This is the result of the servlet call");
+request.getRequestDispatcher("/WEB-INF/result.jsp").forward(request, response);
+and in /WEB-INF/result.jsp
+
+<p>The result is ${result}</p>
+-----
+
+https://stackoverflow.com/questions/3177733/how-can-i-avoid-java-code-in-jsp-files-using-jsp-2/3180202#3180202
+
+https://stackoverflow.com/tags/facelets/info 
