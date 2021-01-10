@@ -1,5 +1,7 @@
+package dataLayer;
+
 public class User {
-    public String firstName;
+    private String firstName;
     private String lastName;
     private String username;
     private String password;

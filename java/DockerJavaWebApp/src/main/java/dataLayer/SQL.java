@@ -1,10 +1,12 @@
+package dataLayer;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public interface SQL {
     public boolean insertSQL(User user);
     //    public void updateSQL(Object object);
-    //    public void deleteSQL(Object object);
-    public ResultSet selectSQL(String email);
-    public ResultSet selectAllSQL();
+    public boolean deleteSQL(String email);
+    public User selectSQL(String email);
+    public ArrayList<User> selectAllSQL();
 }

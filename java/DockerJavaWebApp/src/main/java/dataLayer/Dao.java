@@ -1,9 +1,11 @@
-import java.util.List;
+package dataLayer;
+
+import java.util.ArrayList;
 
 public interface Dao {
 	User get(String email);
-    List<User> getAll();
+    ArrayList<User> getAll();
     boolean save(User user);
     //  void update(T t, String[] params);
-    //  void delete(T t);
+    boolean delete(String email);
 }

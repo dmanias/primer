@@ -1,12 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dimosthenis
-  Date: 8/1/2021
-  Time: 3:32 μ.μ.
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dataLayer.User" %>
+
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>I do CRUD!!</title>
@@ -22,7 +19,7 @@
 <div class="container">
     <h1>User Register Form</h1>
 
-    <form action="LogicAndValidation" method="post">
+    <form action="ViewLogic" method="post">
         <div class="form-group">
             <label for="firstName">First Name:</label>
             <input type="text" class="form-control" id="firstName" name="firstName" value="firstname">
@@ -47,17 +44,37 @@
         <button type="submit" class="btn btn-default">Add User</button>
     </form>
 
-    <form action="LogicAndValidation" method="post">
-        <input type="hidden" class="form-control" name="email"  value="dmanias@eap.gr" >
+    <form action="ViewLogic" method="post">
+        <input type="text" class="form-control" name="email"  value="dmanias@eap.gr" >
         <input type="hidden" class="form-control" name="action" value="getUser">
         <button type="submit" class="btn btn-default">Get User</button>
     </form>
 
-    <div><c:if test="${not empty getUser}">
-        <h1>${getUser}</h1>
-        </c:if>
-    </div>
+<form action="ViewLogic" method="post">
+    <h2><%
+        Object ob = request.getAttribute("firstName");
+        out.println(ob);
+    %></h2>
+    <input type="hidden" class="form-control" name="email" value="<%out.print(request.getAttribute("email"));%>">
+    <input type="hidden" class="form-control" name="action" value="deleteUser">
+    <button type="submit" class="btn btn-default">Delete user</button>
+</form>
 
+
+<form action="ViewLogic" method="post">
+    <input type="hidden" class="form-control" name="action" value="getAllUsers">
+    <button type="submit" class="btn btn-default">Get All Users</button>
+</form>
+<%--
+<div>
+    <%  ArrayList<User> usersList= (ArrayList<User>) request.getAttribute("usersList");
+        for(int i=0; i<usersList.size(); i++){ %>
+    <tr>
+        <td><%=usersList.get(i).getFirstName()%></td>
+    </tr>
+    <% } %>
+</div>
+--%>
 </div>
 </body>
 

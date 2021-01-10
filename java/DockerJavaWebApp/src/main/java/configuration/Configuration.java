@@ -1,4 +1,5 @@
 //The configuration of the application. Here we store the parameters.
+package configuration;
 
 public final class Configuration {
 

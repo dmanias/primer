@@ -5,13 +5,13 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>LogicAndValidation</servlet-name>
-        <servlet-class>LogicAndValidation</servlet-class>
+        <servlet-name>ViewLogic</servlet-name>
+        <servlet-class>logicLayer.ViewLogic</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>LogicAndValidation</servlet-name>
-        <url-pattern>/LogicAndValidation</url-pattern>
+        <servlet-name>ViewLogic</servlet-name>
+        <url-pattern>/ViewLogic</url-pattern>
     </servlet-mapping>
 
 </web-app>

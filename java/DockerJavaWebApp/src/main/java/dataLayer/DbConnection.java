@@ -1,5 +1,6 @@
-import com.mysql.cj.jdbc.Driver;
+package dataLayer;
 
+import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 
 
