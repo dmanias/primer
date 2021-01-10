@@ -58,10 +58,10 @@ public class SQLImpl implements SQL {
         public ResultSet selectSQL(String email){
            conn=dbConn.openDbConnection();
            try{
-           sql = "SELECT DISTINCT FROM Users WHERE email=?";
+           sql = "SELECT * FROM Users WHERE email LIKE 'dmanias@eap.gr'";
 
            statement = conn.prepareStatement(sql);
-           statement.setString(1, email);
+           //statement.setString(1, email);
            result = statement.executeQuery(sql);
            } catch (SQLException ex) {
                ex.printStackTrace();
@@ -80,6 +80,7 @@ public class SQLImpl implements SQL {
 
                 Statement statement = conn.createStatement();
                 result = statement.executeQuery(sql);
+
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }

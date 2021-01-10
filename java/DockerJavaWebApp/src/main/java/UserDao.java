@@ -30,6 +30,7 @@ public class UserDao implements Dao
                 String username = dbResult.getString(3);
                 String password = dbResult.getString(4);
                 String email = dbResult.getString(5);
+
                 user = new User(firstName, lastName, username, password, email);
                 break; //It gives only the first user
             }
@@ -48,11 +49,11 @@ public class UserDao implements Dao
 
         try{
             while(dbResult.next()){
-                String firstName = dbResult.getString(1);
-                String lastName = dbResult.getString(2);
-                String username = dbResult.getString(3);
-                String password = dbResult.getString(4);
-                String email = dbResult.getString(5);
+                String firstName = dbResult.getString(2);
+                String lastName = dbResult.getString(3);
+                String username = dbResult.getString(4);
+                String password = dbResult.getString(5);
+                String email = dbResult.getString(6);
                 usersList.add(new User(firstName, lastName, username, password, email));
             }
         }catch (SQLException ex) {

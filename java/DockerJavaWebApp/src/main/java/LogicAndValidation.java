@@ -14,15 +14,20 @@ public class LogicAndValidation extends HttpServlet {
         boolean formCorrect = false;
         boolean inserted = false;
 
-        String htmlRespone = "";
+        String htmlResponse = null;
+        String firstName = null;
+        String lastName = null;
+        String username = null;
+        String password = null;
+        String email = null;
+        String action = null;
 
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String email = request.getParameter("email");
-        //  int index = Integer.parseInt(request.getParameter("index"));
-        String action = request.getParameter("action");
+        firstName = request.getParameter("firstName");
+        lastName = request.getParameter("lastName");
+        username = request.getParameter("username");
+        password = request.getParameter("password");
+        email = request.getParameter("email");
+        action = request.getParameter("action");
 
         /*
         if (action == "addUser") {
@@ -47,14 +52,21 @@ public class LogicAndValidation extends HttpServlet {
                 }
             }
         }*/
-
-            if (action == "getUser") {
+            //if (action == "getUser") {
 
                 UserDao userDao = new UserDao();
-                userDao.get("dmanias@eap.gr");
-                request.setAttribute("message", message);
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
-            }
+                User user=userDao.get(email);
+                response.setContentType("text/html");
+                response.setCharacterEncoding("UTF-8");
+                htmlResponse = "<html>";
+                htmlResponse += "user: "+ user.getFirstName();
+                htmlResponse += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlResponse);
+                }
+                //request.setAttribute("getUser", user);
+                //request.getRequestDispatcher("/login.jsp").forward(request, response);
+            //}
         }
 
     private boolean validation(String firstName, String lastName, String username, String password, String email, HttpServletResponse response) throws ServletException, IOException {

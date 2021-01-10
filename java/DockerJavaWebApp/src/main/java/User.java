@@ -1,5 +1,5 @@
 public class User {
-    private String firstName;
+    public String firstName;
     private String lastName;
     private String username;
     private String password;
@@ -13,7 +13,7 @@ public class User {
         this.password = password;
         this.email = email;
     }
-/*
+
     public String getFirstName() {
         return firstName;
     }
@@ -53,13 +53,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public int getRollNo() {
-        return rollNo;
-    }
-
-    public void setRollNo(int rollNo) {
-        this.rollNo = rollNo;
-    }
-     */
 }

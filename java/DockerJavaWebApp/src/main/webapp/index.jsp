@@ -5,6 +5,7 @@
   Time: 3:32 μ.μ.
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -51,6 +52,11 @@
         <input type="hidden" class="form-control" name="action" value="getUser">
         <button type="submit" class="btn btn-default">Get User</button>
     </form>
+
+    <div><c:if test="${not empty getUser}">
+        <h1>${getUser}</h1>
+        </c:if>
+    </div>
 
 </div>
 </body>
