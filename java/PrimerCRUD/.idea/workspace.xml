@@ -12,8 +12,16 @@
     <list default="true" id="632cc665-ae82-4ff1-9bcf-028dc531aff6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../database.sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../database.sql.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/DaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/DaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQLImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQLImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/logicLayer/ViewLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/logicLayer/ViewLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/viewLayer/FormValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/viewLayer/FormValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dataLayer/DaoImplTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +56,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../jdbc/mysql-connector-java-8.0.22/mysql-connector-java-8.0.22/mysql-connector-java-8.0.22.jar" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.18620689" />
@@ -67,19 +76,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.DaoImplTest">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PrimerCRUD" />
       <extension name="coverage">
@@ -159,7 +155,8 @@
       <workItem from="1610370435263" duration="5610000" />
       <workItem from="1610387574226" duration="8119000" />
       <workItem from="1610408258519" duration="918000" />
-      <workItem from="1610437744999" duration="4967000" />
+      <workItem from="1610437744999" duration="11398000" />
+      <workItem from="1610450477794" duration="4322000" />
     </task>
     <servers />
   </component>

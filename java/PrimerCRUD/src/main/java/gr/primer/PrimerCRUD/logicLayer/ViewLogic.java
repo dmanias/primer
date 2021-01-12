@@ -1,7 +1,7 @@
 package gr.primer.PrimerCRUD.logicLayer;
 
 import gr.primer.PrimerCRUD.dataLayer.User;
-import gr.primer.PrimerCRUD.dataLayer.Order;
+import gr.primer.PrimerCRUD.dataLayer.Department;
 import gr.primer.PrimerCRUD.dataLayer.DaoImpl;
 import gr.primer.PrimerCRUD.viewLayer.FormValidation;
 
@@ -16,7 +16,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
-
+//Servlet file that makes the logic of the app. It belongs to the middle (logic) layer.
+// It takes input from the jsp (form) and it calls the data layer.
 @WebServlet(name = "ViewLogic")
 public class ViewLogic extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,59 +25,55 @@ public class ViewLogic extends HttpServlet {
         boolean formCorrect = false;
         boolean inserted = false;
 
+        //Form inputs for User
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
         String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        int departmentId=0;
+        if(request.getParameter("departmentId")!=null) {
+            departmentId = Integer.parseInt(request.getParameter("departmentId"));
+        }
+        //Form inputs for Department
+        String departmentName = request.getParameter("departmentName");
+        int userId = 0;
+        if(request.getParameter("userId")!=null) {
+            userId = Integer.parseInt(request.getParameter("userId"));
+        }
+        //Form input for action decision
         String action = request.getParameter("action");
-        String orderId = request.getParameter("orderId");
-        String userEmail = request.getParameter("userEmail");
 
         //SECTION FOR USER LOGIC
         if (action.equals("addUser")) {
 
             //Calls validation method and if everything is fine formCorrect=true
-            formCorrect = new FormValidation(firstName, lastName, username, password, email).validation(response);
+            formCorrect = new FormValidation(firstName, lastName, email, password).validation(response);
 
             //if validation is true calls User from data layer (User.class) and makes user.insert
             if (formCorrect) {
-                User user = new User(firstName, lastName, username, password, email);
                 DaoImpl userDao = new DaoImpl();
-                inserted = userDao.saveUser(user);
+                inserted = userDao.saveUser(firstName, lastName, email, password, departmentId);
             }
 
             //If user is inserted correctly then print message in the screen
             if (inserted) {
                 String htmlRespone = "<html>";
-                htmlRespone += "<h2>User  " + firstName + " added to DB</h2>";
-                htmlRespone += "</html>";
-                try (PrintWriter writer = response.getWriter()) {
-                    writer.println(htmlRespone);
-                }
-            }
-        }
-
-        if (action.equals("getAllUsers")) {
-            DaoImpl userDao = new DaoImpl();
-            ArrayList<User> usersList = userDao.getAllUsers();
-
-            if (usersList == null) {
-                String htmlRespone = "<html>";
-                htmlRespone += "<h2>DB is empty</h2>";
+                htmlRespone += "<h2>The User '" + firstName + " " + lastName + "' is added.</h2>";
                 htmlRespone += "</html>";
                 try (PrintWriter writer = response.getWriter()) {
                     writer.println(htmlRespone);
                 }
             } else {
-
-                request.setAttribute("usersList", usersList);
-
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-                dispatcher.forward(request, response);
+                String htmlRespone = "<html>";
+                htmlRespone += "<h2>The User '" + firstName + " " + lastName + "' is not added.</h2>";
+                htmlRespone += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlRespone);
+                }
             }
-
         }
+
+        //Get user logic
         if (action.equals("getUser")) {
             DaoImpl userDao = new DaoImpl();
 
@@ -84,7 +81,7 @@ public class ViewLogic extends HttpServlet {
 
             if (user == null) {
                 String htmlRespone = "<html>";
-                htmlRespone += "<h2>DB is empty</h2>";
+                htmlRespone += "<h2>There are no users!</h2>";
                 htmlRespone += "</html>";
                 try (PrintWriter writer = response.getWriter()) {
                     writer.println(htmlRespone);
@@ -97,6 +94,26 @@ public class ViewLogic extends HttpServlet {
             }
         }
 
+        //Get all users logic
+        if (action.equals("getAllUsers")) {
+            DaoImpl userDao = new DaoImpl();
+            ArrayList<User> usersList = userDao.getAllUsers();
+
+            if (usersList == null) {
+                String htmlRespone = "<html>";
+                htmlRespone += "<h2>There are no users!</h2>";
+                htmlRespone += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlRespone);
+                }
+            } else {
+                request.setAttribute("usersList", usersList);
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+                dispatcher.forward(request, response);
+            }
+
+        }
+        //Action that asks for user deletion. Since email is unique it uses email
         if (action.equals("deleteUser")) {
 
             DaoImpl userDao = new DaoImpl();
@@ -105,32 +122,36 @@ public class ViewLogic extends HttpServlet {
             //If user is deleted correctly then print message in the screen
             if (deleted) {
                 String htmlRespone = "<html>";
-                htmlRespone += "<h2>User  " + email + " deleted from DB</h2>";
+                htmlRespone += "<h2>The user is deleted.</h2>";
                 htmlRespone += "</html>";
                 try (PrintWriter writer = response.getWriter()) {
                     writer.println(htmlRespone);
                 }
             }
         }
-            //SECTION FOR ORDERS LOGIC
-            //Add order
-            if (action.equals("addOrder")) {
-                Order order = new Order(orderId, userEmail);
-                DaoImpl orderDao = new DaoImpl();
-                inserted = orderDao.saveOrder(order);
+        //SECTION FOR DEPARTMENTS LOGIC
+        //Add department
+        if (action.equals("addDepartment")) {
+            DaoImpl orderDao = new DaoImpl();
+            inserted = orderDao.saveDepartment(departmentName, userId);
 
-                if (inserted) {
-                    String htmlRespone = "<html>";
-                    htmlRespone += "<h2>Order  " + orderId + " added to DB</h2>";
-                    htmlRespone += "</html>";
-                    try (PrintWriter writer = response.getWriter()) {
-                        writer.println(htmlRespone);
-                    }
+            if (inserted) {
+                String htmlRespone = "<html>";
+                htmlRespone += "<h2>The department '" + departmentName + "' is added.</h2>";
+                htmlRespone += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlRespone);
+                }
+            } else {
+                String htmlRespone = "<html>";
+                htmlRespone += "<h2>The department '" + departmentName + "' is not added.</h2>";
+                htmlRespone += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlRespone);
                 }
 
             }
-
+        }
     }
-
 }
 

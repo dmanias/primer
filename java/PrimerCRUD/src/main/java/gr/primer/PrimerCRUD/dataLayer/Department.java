@@ -1,32 +1,24 @@
 package gr.primer.PrimerCRUD.dataLayer;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 //Department class: it deploys Department data model
 public class Department {
     //orderId is a unique number that assigns to every department at creation and increases with each one
-    private String departmentId;
+    private int departmentId;
     private String departmentName;
     private String departmentCreationDate;
-    private int[] userId;
+    private int userId;
 
-    public Department(String departmentName, int[] userId) {
+    public Department(String departmentName, int userId, String departmentCreationDate) {
         this.departmentName = departmentName;
-        //Create date and cast it to string
-        Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        this.departmentCreationDate = dateFormat.format(date);
+        this.departmentCreationDate = departmentCreationDate;
         this.userId = userId;
     }
 
-    public String getDepartmentId() {
+    public int getDepartmentId() {
         return departmentId;
     }
 
-    public void setDepartmentId(String departmentId) {
+    public void setDepartmentId(int departmentId) {
         this.departmentId = departmentId;
     }
 
@@ -46,11 +38,11 @@ public class Department {
         this.departmentCreationDate = departmentCreationDate;
     }
 
-    public int[] getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(int[] userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 }

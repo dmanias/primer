@@ -19,19 +19,21 @@ public class SQLImpl implements SQL {
 
 
         @Override
-        public boolean insertUserSQL(User user){
+        public boolean insertUserSQL(String firstName, String lastName, String email, String password, int departmentId, String userCreationDate){
             boolean inserted = false;
             conn=dbConn.openDbConnection();
 
             try {
-                sql = "INSERT INTO Users (firstName, lastName, username, password, email) VALUES (?, ?, ?, ?, ?)";
+                sql = "INSERT INTO Users (firstName, lastName, email, password, departmentId, userCreationDate ) VALUES (?, ?, ?, ?, ?, ?)";
 
                 statement = conn.prepareStatement(sql);
-                statement.setString(1, user.getFirstName());
-                statement.setString(2, user.getLastName());
-                statement.setString(3, user.getUsername());
-                statement.setString(4, user.getPassword());
-                statement.setString(5, user.getEmail());
+                statement.setString(1, firstName);
+                statement.setString(2, lastName);
+                statement.setString(3, email);
+                statement.setString(4, password);
+                statement.setInt(5, departmentId);
+                statement.setString(6, userCreationDate);
+
 
                 int rowsInserted = statement.executeUpdate();
                 if (rowsInserted > 0) {
@@ -50,27 +52,6 @@ public class SQLImpl implements SQL {
 
         }
 */
-        @Override
-        public boolean deleteUserSQL(String emailInput){
-            boolean deleted = false;
-            conn=dbConn.openDbConnection();
-            try{
-                sql = "DELETE FROM Users WHERE email=?";
-
-                statement = conn.prepareStatement(sql);
-                statement.setString(1, emailInput);
-                int rowsDeleted = statement.executeUpdate();
-                if (rowsDeleted > 0) {
-                    deleted = true;
-                }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-            dbConn.closeDbConnection(conn);
-            return deleted;
-
-        }
-
         @Override
         public boolean userTableIsEmptySQL() {
             boolean isEmpty=true;
@@ -100,7 +81,7 @@ public class SQLImpl implements SQL {
         }
 
         @Override
-        public User selectUserSQL(String emailInput){
+        public User selectUserSQL(String userEmail){
            User user = null;
            conn = dbConn.openDbConnection();
 
@@ -108,7 +89,7 @@ public class SQLImpl implements SQL {
                sql = "SELECT * FROM Users WHERE email=?";
 
                statement = conn.prepareStatement(sql);
-               statement.setString(1, emailInput);
+               statement.setString(1, userEmail);
                result = statement.executeQuery();
            } catch (SQLException ex) {
                ex.printStackTrace();
@@ -116,13 +97,15 @@ public class SQLImpl implements SQL {
 
             try{
                 while(result.next()){
+                    int    userId = (Integer) result.getObject(1);
                     String firstName = result.getString(2);
                     String lastName = result.getString(3);
-                    String username = result.getString(4);
+                    String email = result.getString(4);
                     String password = result.getString(5);
-                    String email = result.getString(6);
+                    int    departmentId = (Integer) result.getObject(6);
+                    String userCreationDate = result.getString(7);
 
-                    user = new User(firstName, lastName, username, password, email);
+                    user = new User(userId, firstName, lastName, email, password, departmentId, userCreationDate);
                     break; //It gives only the first user
                 }
             }catch (SQLException ex) {
@@ -150,13 +133,15 @@ public class SQLImpl implements SQL {
 
             try{
                 while(result.next()){
+                    int    userId = (Integer) result.getObject(1);
                     String firstName = result.getString(2);
                     String lastName = result.getString(3);
-                    String username = result.getString(4);
+                    String email = result.getString(4);
                     String password = result.getString(5);
-                    String email = result.getString(6);
+                    int    departmentId = (Integer) result.getObject(6);
+                    String userCreationDate = result.getString(7);
 
-                    usersList.add(new User(firstName, lastName, username, password, email));
+                    usersList.add(new User(userId, firstName, lastName, email, password, departmentId, userCreationDate));
                 }
             }catch (SQLException ex) {
                 ex.printStackTrace();
@@ -166,17 +151,38 @@ public class SQLImpl implements SQL {
         }
 
     @Override
-    public boolean insertOrderSQL(Order order) {
+    public boolean deleteUserSQL(String emailInput){
+        boolean deleted = false;
+        conn=dbConn.openDbConnection();
+        try{
+            sql = "DELETE FROM Users WHERE email=?";
+
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, emailInput);
+            int rowsDeleted = statement.executeUpdate();
+            if (rowsDeleted > 0) {
+                deleted = true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        dbConn.closeDbConnection(conn);
+        return deleted;
+
+    }
+
+    @Override
+    public boolean insertDepartmentSQL(String departmentName, int userId, String departmentCreationDate) {
         boolean inserted = false;
         conn=dbConn.openDbConnection();
 
         try {
-            sql = "INSERT INTO Orders (orderId, creationDate, userEmail) VALUES (?, ?, ?)";
+            sql = "INSERT INTO Departments (departmentName, userId, departmentCreationDate) VALUES (?, ?, ?)";
 
             statement = conn.prepareStatement(sql);
-            statement.setString(1, order.getOrderId());
-            statement.setString(2, order.getCreationDate());
-            statement.setString(3, order.getUserEmail());
+            statement.setString(1, departmentName);
+            statement.setInt(2, userId);
+            statement.setString(3, departmentCreationDate);
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {

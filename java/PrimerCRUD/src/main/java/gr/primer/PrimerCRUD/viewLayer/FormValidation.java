@@ -5,19 +5,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
+//An example of a Class that makes the validation of the form. Since it match with the form is belongs to the view layer.
 public class FormValidation {
 
     String firstName;
     String lastName;
-    String username;
     String password;
     String email;
 
 
-    public FormValidation(String firstName, String lastName, String username, String password, String email) {
+    public FormValidation(String firstName, String lastName, String email, String password) {
        this.firstName = firstName;
        this.lastName = lastName;
-       this.username = username;
        this.password = password;
        this.email = email;
     }
@@ -36,11 +36,6 @@ public class FormValidation {
 
         if (lastName == "") {
             htmlResponse += "<h2>Your Lastname is empty</h2>";
-            formCorrect = false;
-        }
-
-        if (username == "") {
-            htmlResponse += "<h2>Your Username is empty</h2>";
             formCorrect = false;
         }
 

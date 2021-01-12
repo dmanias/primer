@@ -2,11 +2,14 @@ package gr.primer.PrimerCRUD.dataLayer;
 
 import java.util.ArrayList;
 
+//Dao Class: The Data Access Object (DAO) pattern is a structural pattern
+// that allows us to isolate the application/business layer from the persistence layer (usually a relational database,
+// but it could be any other persistence mechanism) using an abstract API.)
 public interface Dao {
-	User getUser(String string);
+    boolean saveUser(String firstName, String lastName, String email, String password, int departmentId);
+    User getUser(String string);
     ArrayList<User> getAllUsers();
-    boolean saveUser(User user);
     //  void update(T t, String[] params);
     boolean deleteUser(String string);
-    public boolean saveOrder(Order order);
+    boolean saveDepartment(String departmentName, int userId);
 }
