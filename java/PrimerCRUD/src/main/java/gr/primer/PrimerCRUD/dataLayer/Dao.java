@@ -12,8 +12,11 @@ public interface Dao {
     ArrayList<User> getAllUsers();
     //  void update(T t, String[] params);
     boolean deleteUser(String string);
+    ArrayList<Department> getUserDepartments(int userId);
     //SQL for departments table
     boolean saveDepartment(String departmentName, int userId);
     Department getDepartment(int departmentId);
     ArrayList<Department> getAllDepartments();
+    public boolean deleteDepartment(int departmentId);
+    ArrayList<User> getDepartmentUsers(int departmentId);
 }

@@ -37,7 +37,7 @@
             <input type="password" class="form-control" id="password" name="password" value="password"/>
         </div>
         <div class="form-group">
-            <label for="departmentId">departmentId:</label>
+            <label for="departmentId">Department Ids:</label>
             <input type="text" class="form-control" id="departmentId" name="departmentId" value="9"/>
         </div>
         <input type="hidden" class="form-control" name="action" value="addUser">
@@ -46,10 +46,31 @@
 
     <!-- Select user form-->
     <form action="ViewLogic" method="post">
-        <input type="text" class="form-control" name="email" value="dmanias@eap.gr">
+        <div class="form-group">
+            <label for="departmentId">User's email:</label>
+            <input type="text" class="form-control" name="email" value="dmanias@eap.gr">
+        </div>
         <input type="hidden" class="form-control" name="action" value="getUser">
         <button type="submit" class="btn btn-default">Get User</button>
     </form>
+
+    <% User user;
+        if (request.getAttribute("user") != null) {
+    %><h2> User:</h2><%
+    user = (User) request.getAttribute("user"); %>
+    <form action="ViewLogic" method="post">
+        <h2><% out.print(user.getFirstName());%></h2>
+        <input type="hidden" class="form-control" name="email" value="<%out.print(user.getEmail());%>">
+        <input type="hidden" class="form-control" name="action" value="deleteUser">
+        <button type="submit" class="btn btn-default">Delete User</button>
+    </form>
+    <form action="ViewLogic" method="post">
+        <input type="hidden" class="form-control" name="email" value="<%out.print(user.getEmail());%>">
+        <input type="hidden" class="form-control" name="action" value="showUserDepartments">
+        <button type="submit" class="btn btn-default">
+            Show <%out.print(user.getFirstName() + " " + user.getLastName());%> Departments </button>
+    </form>
+    <%}%>
 
     <!-- Form for show users list-->
     <form action="ViewLogic" method="post">
@@ -58,20 +79,24 @@
     </form>
 
     <div>
-        <% ArrayList<User> usersList = new ArrayList<>();
+        <% ArrayList<User> usersList = new ArrayList<>(); int usersCount=0;
             if (request.getAttribute("usersList") != null) {
         %><h2> Users List:</h2><%
                 usersList = (ArrayList<User>) request.getAttribute("usersList");
-                for (User user : usersList) { %>
+                for (User userFromList : usersList) { %>
         <form action="ViewLogic" method="post">
-            <h3><%out.print(user.getFirstName() + " " + user.getLastName());%></h3>
-            <input type="hidden" class="form-control" name="email" value="<%out.print(user.getEmail());%>">
+            <h3><%out.print(++usersCount+". "  + userFromList.getFirstName() + " " + userFromList.getLastName());%></h3>
+            <input type="hidden" class="form-control" name="email" value="<%out.print(userFromList.getEmail());%>">
             <input type="hidden" class="form-control" name="action" value="deleteUser">
             <button type="submit" class="btn btn-default">Delete user</button>
         </form>
-        <%
-                }
-            }
+        <form action="ViewLogic" method="post">
+            <input type="hidden" class="form-control" name="email" value="<%out.print(userFromList.getEmail());%>">
+            <input type="hidden" class="form-control" name="action" value="showUserDepartments">
+            <button type="submit" class="btn btn-default">
+                Show <%out.print(userFromList.getFirstName() + " " + userFromList.getLastName());%> Departments </button>
+        </form>
+        <%} }
         %>
     </div>
 
@@ -79,11 +104,11 @@
     <form action="ViewLogic" method="post" >
         <h1>Department Register Form</h1>
         <div class="form-group">
-            <label for="departmentName">Department Name:</label>
+            <label for="departmentName">Department's Name:</label>
             <input type="text" class="form-control" id="departmentName" name="departmentName" value="The best department">
         </div>
         <div class="form-group">
-            <label for="userId">User's Id:</label>
+            <label for="userId">User Ids:</label>
             <input type="text" class="form-control" id="userId" name="userId" value="7">
         </div>
 
@@ -93,19 +118,31 @@
 
     <!-- Select department form-->
     <form action="ViewLogic" method="post">
-        <input type="text" class="form-control" name="departmentId" value="1">
+        <div class="form-group">
+            <label for="departmentId">Department's Id:</label>
+            <input type="text" class="form-control" name="departmentId" value="1">
+        </div>
         <input type="hidden" class="form-control" name="action" value="getDepartment">
         <button type="submit" class="btn btn-default">Get Department</button>
     </form>
-    <% if (request.getAttribute("departmentName") != null) {%>
+    <% Department department;
+        if (request.getAttribute("department") != null) {
+    %><h2> Department:</h2><%
+    department = (Department) request.getAttribute("department"); %>
     <form action="ViewLogic" method="post">
-        <h2><% out.print(request.getAttribute("departmentName"));%></h2>
-        <input type="hidden" class="form-control" name="departmentId" value="<%out.print(request.getAttribute("departmentId"));%>">
+        <h2><% out.print(department.getDepartmentName());%></h2>
+        <input type="hidden" class="form-control" name="departmentId" value="<%out.print(department.getDepartmentId());%>">
         <input type="hidden" class="form-control" name="action" value="deleteDepartment">
         <button type="submit" class="btn btn-default">Delete Department</button>
     </form>
+    <form action="ViewLogic" method="post">
+        <input type="hidden" class="form-control" name="departmentId" value="<%out.print(department.getDepartmentId());%>">
+        <input type="hidden" class="form-control" name="action" value="showDepartmentUsers">
+        <button type="submit" class="btn btn-default">
+            Show <%out.print(department.getDepartmentName());%> Users </button>
+    </form>
     <%}%>
-</div>
+
 
 <!-- Form for show departments list-->
 <form action="ViewLogic" method="post">
@@ -114,21 +151,28 @@
 </form>
 
 <div>
-    <% ArrayList<Department> departmenstList = new ArrayList<>();
+    <% ArrayList<Department> departmenstList = new ArrayList<>(); int departmentsCount=0;
         if (request.getAttribute("departmenstList") != null) {
     %><h2> Departments List:</h2><%
             departmenstList = (ArrayList<Department>) request.getAttribute("departmenstList");
-            for (Department department : departmenstList) { %>
+            for (Department departmentFromList : departmenstList) { %>
     <form action="ViewLogic" method="post">
-        <h3><%out.print(department.getDepartmentName());%></h3>
-        <input type="hidden" class="form-control" name="departmentId" value="<%out.print(department.getDepartmentId());%>">
+        <h3><%out.print(++departmentsCount+". "  + departmentFromList.getDepartmentName());%></h3>
+        <input type="hidden" class="form-control" name="departmentId" value="<%out.print(departmentFromList.getDepartmentId());%>">
         <input type="hidden" class="form-control" name="action" value="deleteDepartment">
         <button type="submit" class="btn btn-default">Delete Department</button>
+    </form>
+    <form action="ViewLogic" method="post">
+        <input type="hidden" class="form-control" name="departmentId" value="<%out.print(departmentFromList.getDepartmentId());%>">
+        <input type="hidden" class="form-control" name="action" value="showDepartmentUsers">
+        <button type="submit" class="btn btn-default">
+            Show <%out.print(departmentFromList.getDepartmentName());%> Users </button>
     </form>
     <%
             }
         }
     %>
+</div>
 </div>
 </body>
 

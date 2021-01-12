@@ -13,6 +13,7 @@ public class DaoImpl implements Dao {
 
     public DaoImpl(){  }
 
+    //DAO USER LOGIC
     //It asks SQLimpl to save the user in the Db
     @Override
     public boolean saveUser(String firstName, String lastName, String email, String password, int departmentId) {
@@ -71,13 +72,26 @@ public class DaoImpl implements Dao {
             users.add(user);
         }
     */
+    //It asks SQLImpl to delete user from the users table and if it is done it returns true to ViewLogic
     @Override
     public boolean deleteUser(String userEmail) {
         SQLImpl sqlQuestion=new SQLImpl();
         boolean deleted = sqlQuestion.deleteUserSQL(userEmail);
         return deleted;
-
     }
+
+    //It asks SQLImpl to bring all departments that a user belongs to and it gives a list of them to ViewLogic
+    @Override
+    public ArrayList<Department> getUserDepartments(int userId) {
+        ArrayList<Department> departmentsList;
+        SQLImpl sqlQuestion=new SQLImpl();
+        departmentsList = sqlQuestion.selectUserDepartmentsSQL(userId);
+        return departmentsList;
+    }
+
+
+    //DAO DEPARTMENTS LOGIC
+    //Is asks SQLImpl to save the department into the departments table and returns true if it is added succesfully
     @Override
     public boolean saveDepartment(String departmentName, int userId) {
         SQLImpl sqlQuestion=new SQLImpl();
@@ -90,9 +104,7 @@ public class DaoImpl implements Dao {
     public Department getDepartment(int departmentId) {
         boolean isEmpty=true;
         Department department = null;
-
         SQLImpl sqlQuestion=new SQLImpl();
-
         //It check if there are any users by asking the SQLImpl to check if the user table is empty
         isEmpty = sqlQuestion.departmentTableIsEmptySQL();
 
@@ -122,6 +134,21 @@ public class DaoImpl implements Dao {
             departmentsList = sqlQuestion.selectAllDepartmentsSQL();
         }
         return departmentsList;
+    }
+    //It asks SQLImpl to delete department from the departments table and if it is done it returns true to ViewLogic
+    @Override
+    public boolean deleteDepartment(int departmentId) {
+        SQLImpl sqlQuestion = new SQLImpl();
+        boolean deleted = sqlQuestion.deleteDepartmentSQL(departmentId);
+        return deleted;
+    }
+    //It asks SQLImpl to bring all users for a specific department and it gives a list of them to ViewLogic
+    @Override
+    public ArrayList<User> getDepartmentUsers(int departmentId) {
+        ArrayList<User> usersList;
+        SQLImpl sqlQuestion=new SQLImpl();
+        usersList = sqlQuestion.selectDepartmentUsersSQL(departmentId);
+        return usersList;
     }
 
     //Create date and cast it to string

@@ -87,8 +87,7 @@ public class ViewLogic extends HttpServlet {
                     writer.println(htmlRespone);
                 }
             } else {
-                request.setAttribute("firstName", user.getFirstName());
-                request.setAttribute("email", user.getEmail());
+                request.setAttribute("user", user);
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);
             }
@@ -129,6 +128,36 @@ public class ViewLogic extends HttpServlet {
                 }
             }
         }
+
+        //Get user departments logic
+        if (action.equals("showUserDepartments")) {
+            DaoImpl userDao = new DaoImpl();
+            User user = userDao.getUser(email);
+
+            DaoImpl departmentDao = new DaoImpl();
+            ArrayList<Department> departmentsList = departmentDao.getUserDepartments(user.getUserId());
+
+            String htmlResponse = "<html>";
+            if (departmentsList == null) {
+                htmlResponse += "<h2>There are no departments!</h2>";
+                htmlResponse += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlResponse);
+                }
+                } else {
+                    htmlResponse += "<h2>User's "+ user.getFirstName()+" "+ user.getLastName()+" departments:</h2>";
+                    int i=0;
+                    for (Department department:departmentsList) {
+                        htmlResponse += "<h3>" + ++i + ". " + department.getDepartmentName() + " </h3><br>";
+                    }
+                    htmlResponse += "</html>";
+                    try (PrintWriter writer = response.getWriter()) {
+                        writer.println(htmlResponse);
+                    }
+                }
+
+            }
+
         //SECTION FOR DEPARTMENTS LOGIC
         //Add department
         if (action.equals("addDepartment")) {
@@ -166,8 +195,7 @@ public class ViewLogic extends HttpServlet {
                     writer.println(htmlRespone);
                 }
             } else {
-                request.setAttribute("departmentName", department.getDepartmentName());
-                request.setAttribute("departmentId", department.getDepartmentId());
+                request.setAttribute("department", department);
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);
             }
@@ -188,6 +216,53 @@ public class ViewLogic extends HttpServlet {
                 request.setAttribute("departmenstList", departmenstList);
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);
+            }
+
+        }
+
+        //Action that asks for user deletion. Since email is unique it uses email
+        if (action.equals("deleteDepartment")) {
+
+            DaoImpl departmentDao = new DaoImpl();
+            boolean deleted = departmentDao.deleteDepartment(departmentId);
+
+            //If user is deleted correctly then print message in the screen
+            if (deleted) {
+                String htmlRespone = "<html>";
+                htmlRespone += "<h2>The department is deleted.</h2>";
+                htmlRespone += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlRespone);
+                }
+            }
+        }
+
+        //Get user departments logic
+        if (action.equals("showDepartmentUsers")) {
+
+            DaoImpl departmentDao = new DaoImpl();
+            Department department = departmentDao.getDepartment(departmentId);
+
+            DaoImpl userDao = new DaoImpl();
+            ArrayList<User> usersList = userDao.getDepartmentUsers(department.getDepartmentId());
+
+            String htmlResponse = "<html>";
+            if (usersList == null) {
+                htmlResponse += "<h2>There are no users!</h2>";
+                htmlResponse += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlResponse);
+                }
+            } else {
+                htmlResponse += "<h2>Department's "+ department.getDepartmentName()+" users:</h2>";
+                int i=0;
+                for (User user:usersList) {
+                    htmlResponse += "<h3>" + ++i + ". " + user.getFirstName() + " " + user.getLastName() + " </h3><br>";
+                }
+                htmlResponse += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlResponse);
+                }
             }
 
         }

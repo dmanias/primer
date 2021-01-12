@@ -10,15 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="632cc665-ae82-4ff1-9bcf-028dc531aff6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/DaoImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/DaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/DaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQLImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQLImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/logicLayer/ViewLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/logicLayer/ViewLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/DaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/DaoImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/SQLImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/SQLImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/PrimerCRUD-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/PrimerCRUD-1.0-SNAPSHOT/index.jsp" afterDir="false" />
     </list>
@@ -74,7 +74,7 @@
       <recent name="gr.primer.PrimerCRUD.dataLayer" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DaoImplTest (1)">
+  <component name="RunManager" selected="JUnit.SQLImplTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -162,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DaoImplTest (1)" />
         <item itemvalue="JUnit.SQLImplTest" />
+        <item itemvalue="JUnit.DaoImplTest (1)" />
         <item itemvalue="JUnit.DaoImplTest" />
         <item itemvalue="Docker.Tomcat Container" />
       </list>
@@ -182,7 +182,7 @@
       <workItem from="1610387574226" duration="8119000" />
       <workItem from="1610408258519" duration="918000" />
       <workItem from="1610437744999" duration="11398000" />
-      <workItem from="1610450477794" duration="9615000" />
+      <workItem from="1610450477794" duration="23378000" />
     </task>
     <servers />
   </component>

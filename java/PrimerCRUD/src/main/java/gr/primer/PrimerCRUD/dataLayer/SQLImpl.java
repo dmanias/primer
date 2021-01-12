@@ -17,7 +17,8 @@ public class SQLImpl implements SQL {
         dbConn = new DbConnection(Configuration.dbURL, Configuration.dbUsername, Configuration.dbPassword);
     }
 
-
+        //USERS SQL
+        //Insert User in Db, in table Users
         @Override
         public boolean insertUserSQL(String firstName, String lastName, String email, String password, int departmentId, String userCreationDate){
             boolean inserted = false;
@@ -52,6 +53,7 @@ public class SQLImpl implements SQL {
 
         }
 */
+        // Checks if users table is empty
         @Override
         public boolean userTableIsEmptySQL() {
             boolean isEmpty=true;
@@ -80,6 +82,7 @@ public class SQLImpl implements SQL {
             return isEmpty;
         }
 
+        //Select a user from Users table using user's email that is unique
         @Override
         public User selectUserSQL(String userEmail){
            User user = null;
@@ -149,7 +152,7 @@ public class SQLImpl implements SQL {
             dbConn.closeDbConnection(conn);
             return usersList;
         }
-
+    //Deletes a specific department from departments table in Db, using user's emaul that is unique
     @Override
     public boolean deleteUserSQL(String emailInput){
         boolean deleted = false;
@@ -168,8 +171,40 @@ public class SQLImpl implements SQL {
         }
         dbConn.closeDbConnection(conn);
         return deleted;
-
     }
+    //SQL select for a specific user all departments from departments table
+    @Override
+    public ArrayList<Department> selectUserDepartmentsSQL(int userIdfromInput){
+        ArrayList<Department> departmentsList= new ArrayList<>();
+        conn=dbConn.openDbConnection();
+
+        try {
+            sql = "SELECT * FROM Departments WHERE userId=?";
+
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, userIdfromInput);
+            result = statement.executeQuery();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        try{
+            while(result.next()){
+                int    departmentId = (Integer) result.getObject(1);
+                String departmentName = result.getString(2);
+                int    userId = (Integer) result.getObject(3);
+                String departmentCreationDate = result.getString(4);
+
+                departmentsList.add(new Department(departmentId, departmentName, userId, departmentCreationDate));
+            }
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        dbConn.closeDbConnection(conn);
+        return departmentsList;
+    }
+
+    //DEPARTMENTS SQL
     //insert a new department to database
     @Override
     public boolean insertDepartmentSQL(String departmentName, int userId, String departmentCreationDate) {
@@ -286,5 +321,61 @@ public class SQLImpl implements SQL {
         }
         dbConn.closeDbConnection(conn);
         return departmentsList;
+    }
+
+    //Deletes a specific department from departments table in Db
+    @Override
+    public boolean deleteDepartmentSQL(int departmentId){
+        boolean deleted = false;
+        conn=dbConn.openDbConnection();
+        try{
+            sql = "DELETE FROM Departments WHERE id=?";
+
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, departmentId);
+            int rowsDeleted = statement.executeUpdate();
+            if (rowsDeleted > 0) {
+                deleted = true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        dbConn.closeDbConnection(conn);
+        return deleted;
+    }
+
+    //SQL select for a specific department all users from users table
+    @Override
+    public ArrayList<User> selectDepartmentUsersSQL(int departmentIdfromInput){
+        ArrayList<User> usersList= new ArrayList<>();
+        conn=dbConn.openDbConnection();
+
+        try {
+            sql = "SELECT * FROM Users WHERE departmentId=?";
+
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, departmentIdfromInput);
+            result = statement.executeQuery();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        try{
+            while(result.next()){
+                int    userId = (Integer) result.getObject(1);
+                String firstName = result.getString(2);
+                String lastName = result.getString(3);
+                String email = result.getString(4);
+                String password = result.getString(5);
+                int    departmentId = (Integer) result.getObject(6);
+                String userCreationDate = result.getString(7);
+
+                usersList.add(new User(userId, firstName, lastName, email, password, departmentId, userCreationDate));
+            }
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        dbConn.closeDbConnection(conn);
+        return usersList;
     }
 }
