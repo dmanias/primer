@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PrimerCRUD:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="632cc665-ae82-4ff1-9bcf-028dc531aff6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../-PrimerCRUD/.idea/.idea/.idea.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/PrimerCRUD_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/PrimerCRUD_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_web_api_8_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrimerCRUD.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/configuration/Configuration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Dao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/DaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/DbConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQLImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/logicLayer/ViewLogic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/viewLayer/FormValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dataLayer/DaoImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/SQLImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../database.sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../database.sql.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/.idea/.idea.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/artifacts/DockerJavaWebApp_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/artifacts/DockerJavaWebApp_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/dataSources/bc0982d6-40d4-4048-9a27-4e1085d14ea6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/dataSources/bc0982d6-40d4-4048-9a27-4e1085d14ea6/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__javax_javaee_web_api_8_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/DockerJavaWebApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/configuration/Configuration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/dataLayer/Dao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/dataLayer/DbConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/dataLayer/SQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/dataLayer/SQLImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/dataLayer/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/dataLayer/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/logicLayer/ViewLogic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/java/viewLayer/FormValidation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/resources/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/webapp/WEB-INF/faces-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/target/classes/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DockerJavaWebApp/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../links.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="UML Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1mvLhMJRxusg6ZdGRhbMQri8zzN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../jdbc/mysql-connector-java-8.0.22/mysql-connector-java-8.0.22/mysql-connector-java-8.0.22.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.18620689" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Owner\OneDrive - Ελληνικό Ανοικτό Πανεπιστήμιο\job seek\primer\java\PrimerCRUD\src\main\webapp" />
+      <recent name="C:\Users\Owner\OneDrive - Ελληνικό Ανοικτό Πανεπιστήμιο\job seek\primer\java\PrimerCRUD\src\test\java" />
+      <recent name="C:\Users\Owner\OneDrive - Ελληνικό Ανοικτό Πανεπιστήμιο\job seek\primer\java\PrimerCRUD\src\main\java\gr\primer\PrimerCRUD" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="gr.primer.PrimerCRUD.dataLayer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DaoImplTest">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PrimerCRUD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataLayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataLayer" />
+      <option name="MAIN_CLASS_NAME" value="dataLayer.DaoImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SQLImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PrimerCRUD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gr.primer.PrimerCRUD.dataLayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="gr.primer.PrimerCRUD.dataLayer" />
+      <option name="MAIN_CLASS_NAME" value="gr.primer.PrimerCRUD.dataLayer.SQLImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat Container" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="tomcat:latest" />
+          <option name="command" value="" />
+          <option name="containerName" value="TomcatContainer" />
+          <option name="entrypoint" value="" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="8080" />
+                <option name="hostIp" value="127.0.0.1" />
+                <option name="hostPort" value="8080" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="" />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/usr/local/tomcat/webapps" />
+                <option name="hostPath" value="C:\Users\Owner\OneDrive - Ελληνικό Ανοικτό Πανεπιστήμιο\job seek\primer\java\PrimerCRUD\target" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DaoImplTest" />
+        <item itemvalue="JUnit.SQLImplTest" />
+        <item itemvalue="Docker.Tomcat Container" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="632cc665-ae82-4ff1-9bcf-028dc531aff6" name="Default Changelist" comment="" />
+      <created>1610369237895</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610369237895</updated>
+      <workItem from="1610369241106" duration="1161000" />
+      <workItem from="1610370435263" duration="5610000" />
+      <workItem from="1610387574226" duration="8119000" />
+      <workItem from="1610408258519" duration="918000" />
+      <workItem from="1610437744999" duration="1194000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

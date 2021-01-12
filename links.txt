@@ -40,3 +40,6 @@ and in /WEB-INF/result.jsp
 https://stackoverflow.com/questions/3177733/how-can-i-avoid-java-code-in-jsp-files-using-jsp-2/3180202#3180202
 
 https://stackoverflow.com/tags/facelets/info 
+
+UML
+https://www2.dmst.aueb.gr/dds/ism/oo/indexw.htm
