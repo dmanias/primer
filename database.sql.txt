@@ -9,21 +9,22 @@ CREATE TABLE Users (
     lastName varchar(45) NOT NULL,
     email varchar(45) NOT NULL,
     password varchar(45) NOT NULL,
+    departmentId int NOT NULL,	
+    userCreationDate varchar(45) NOT NULL,	
     PRIMARY KEY (id),
-    FOREIGN KEY (userEmail) REFERENCES Users(email), 
-    UNIQUE (email),
+    FOREIGN KEY (departmentId) REFERENCES Departments(id), 
+    UNIQUE (email)
 );
 
 --
--- Table structure for table 'orders'
+-- Table structure for table 'departments'
 --
 
 CREATE TABLE Orders(
     id int(11) NOT NULL AUTO_INCREMENT,
-    orderId varchar(45) NOT NULL,
-    creationDate varchar(45) NOT NULL,
-    userEmail varchar(45) NOT NULL,		
+    departmentName varchar(45) NOT NULL,
+    departmentCreationDate varchar(45) NOT NULL,
+    userId int NOT NULL,		
     PRIMARY KEY (id),
-    UNIQUE (orderId),
-    FOREIGN KEY (userEmail) REFERENCES Users(email)   
+    FOREIGN KEY (userId) REFERENCES Users(id)   
 );

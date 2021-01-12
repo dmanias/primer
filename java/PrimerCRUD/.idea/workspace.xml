@@ -10,11 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="632cc665-ae82-4ff1-9bcf-028dc531aff6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../database.sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../database.sql.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +159,7 @@
       <workItem from="1610370435263" duration="5610000" />
       <workItem from="1610387574226" duration="8119000" />
       <workItem from="1610408258519" duration="918000" />
-      <workItem from="1610437744999" duration="3362000" />
+      <workItem from="1610437744999" duration="4967000" />
     </task>
     <servers />
   </component>
