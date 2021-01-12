@@ -1,22 +1,40 @@
 package gr.primer.PrimerCRUD.dataLayer;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
+//User class: it deploys User data model
 public class User {
+    //UserId is a random number assigned to each employ and increases for every employ
+    private String userID;
     private String firstName;
     private String lastName;
-    private String username;
-    private String password;
     private String email;
-    private ArrayList orders;
+    private String password;
+    private int[] departmentID;
+    private String userCreationDate;
 
-
-   public User(String firstName, String lastName, String username, String password, String email){
+    public User(String firstName, String lastName, String email, String password, int[] departmentID) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.username = username;
-        this.password = password;
         this.email = email;
+        this.password = password;
+        this.departmentID = departmentID;
+        //Create date and cast it to string
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        this.userCreationDate = dateFormat.format(date);
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getFirstName() {
@@ -35,12 +53,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -51,11 +69,19 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public int[] getDepartmentID() {
+        return departmentID;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDepartmentID(int[] departmentID) {
+        this.departmentID = departmentID;
+    }
+
+    public String getUserCreationDate() {
+        return userCreationDate;
+    }
+
+    public void setUserCreationDate(String userCreationDate) {
+        this.userCreationDate = userCreationDate;
     }
 }
