@@ -1,6 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="gr.primer.PrimerCRUD.dataLayer.User" %>
-
+<%@ page import="gr.primer.PrimerCRUD.dataLayer.Department" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -51,28 +51,20 @@
         <button type="submit" class="btn btn-default">Get User</button>
     </form>
 
-    <% if (request.getAttribute("firstName") != null) {%>
-    <form action="ViewLogic" method="post">
-        <h2><% out.print(request.getAttribute("firstName"));%></h2>
-        <input type="hidden" class="form-control" name="email" value="<%out.print(request.getAttribute("email"));%>">
-        <input type="hidden" class="form-control" name="action" value="deleteUser">
-        <button type="submit" class="btn btn-default">Delete user</button>
-    </form>
-    <%}%>
-
+    <!-- Form for show users list-->
     <form action="ViewLogic" method="post">
         <input type="hidden" class="form-control" name="action" value="getAllUsers">
         <button type="submit" class="btn btn-default">Get All Users</button>
     </form>
 
-    <!-- Form for show users list-->
     <div>
         <% ArrayList<User> usersList = new ArrayList<>();
             if (request.getAttribute("usersList") != null) {
+        %><h2> Users List</h2><%
                 usersList = (ArrayList<User>) request.getAttribute("usersList");
                 for (User user : usersList) { %>
         <form action="ViewLogic" method="post">
-            <h2><%out.print(user.getEmail());%></h2>
+            <h3><%out.print(user.getFirstName() + " " + user.getLastName());%></h3>
             <input type="hidden" class="form-control" name="email" value="<%out.print(user.getEmail());%>">
             <input type="hidden" class="form-control" name="action" value="deleteUser">
             <button type="submit" class="btn btn-default">Delete user</button>
@@ -99,6 +91,44 @@
         <button type="submit" class="btn btn-default">Add Department</button>
     </form>
 
+    <!-- Select department form-->
+    <form action="ViewLogic" method="post">
+        <input type="text" class="form-control" name="departmentId" value="1">
+        <input type="hidden" class="form-control" name="action" value="getDepartment">
+        <button type="submit" class="btn btn-default">Get Department</button>
+    </form>
+    <% if (request.getAttribute("departmentName") != null) {%>
+    <form action="ViewLogic" method="post">
+        <h2><% out.print(request.getAttribute("departmentName"));%></h2>
+        <input type="hidden" class="form-control" name="departmentId" value="<%out.print(request.getAttribute("departmentId"));%>">
+        <input type="hidden" class="form-control" name="action" value="deleteDepartment">
+        <button type="submit" class="btn btn-default">Delete Department</button>
+    </form>
+    <%}%>
+</div>
+
+<!-- Form for show departments list-->
+<form action="ViewLogic" method="post">
+    <input type="hidden" class="form-control" name="action" value="getAllDepartments">
+    <button type="submit" class="btn btn-default">Get All Departments</button>
+</form>
+
+<div>
+    <% ArrayList<Department> departmenstList = new ArrayList<>();
+        if (request.getAttribute("departmenstList") != null) {
+    %><h2> Departments List</h2><%
+            departmenstList = (ArrayList<Department>) request.getAttribute("departmenstList");
+            for (Department department : departmenstList) { %>
+    <form action="ViewLogic" method="post">
+        <h3><%out.print(department.getDepartmentName());%></h3>
+        <input type="hidden" class="form-control" name="departmentId" value="<%out.print(department.getDepartmentId());%>">
+        <input type="hidden" class="form-control" name="action" value="deleteDepartment">
+        <button type="submit" class="btn btn-default">Delete Department</button>
+    </form>
+    <%
+            }
+        }
+    %>
 </div>
 </body>
 

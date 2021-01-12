@@ -15,9 +15,15 @@ class SQLImplTest {
     }
 
     @Test
-    void databaseIsEmptySQL() {
+    void userDatabaseIsEmptySQL() {
         SQLImpl tester = new SQLImpl();
         assertFalse(tester.userTableIsEmptySQL());
+    }
+
+    @Test
+    void departmentDatabaseIsEmptySQL() {
+        SQLImpl tester = new SQLImpl();
+        assertFalse(tester.departmentTableIsEmptySQL());
     }
 
     @Test

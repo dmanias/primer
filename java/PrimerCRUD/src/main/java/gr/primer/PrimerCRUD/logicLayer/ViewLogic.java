@@ -132,8 +132,8 @@ public class ViewLogic extends HttpServlet {
         //SECTION FOR DEPARTMENTS LOGIC
         //Add department
         if (action.equals("addDepartment")) {
-            DaoImpl orderDao = new DaoImpl();
-            inserted = orderDao.saveDepartment(departmentName, userId);
+            DaoImpl departmentDao = new DaoImpl();
+            inserted = departmentDao.saveDepartment(departmentName, userId);
 
             if (inserted) {
                 String htmlRespone = "<html>";
@@ -152,6 +152,46 @@ public class ViewLogic extends HttpServlet {
 
             }
         }
+        //Get department logic
+        if (action.equals("getDepartment")) {
+            DaoImpl departmentDao = new DaoImpl();
+
+            Department department = departmentDao.getDepartment(departmentId);
+
+            if (department == null) {
+                String htmlRespone = "<html>";
+                htmlRespone += "<h2>There are no departments!</h2>";
+                htmlRespone += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlRespone);
+                }
+            } else {
+                request.setAttribute("departmentName", department.getDepartmentName());
+                request.setAttribute("departmentId", department.getDepartmentId());
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+                dispatcher.forward(request, response);
+            }
+        }
+        //Get all departments logic
+        if (action.equals("getAllDepartments")) {
+            DaoImpl departmentDao = new DaoImpl();
+            ArrayList<Department> departmenstList = departmentDao.getAllDepartments();
+
+            if (departmenstList == null) {
+                String htmlRespone = "<html>";
+                htmlRespone += "<h2>There are no departments!</h2>";
+                htmlRespone += "</html>";
+                try (PrintWriter writer = response.getWriter()) {
+                    writer.println(htmlRespone);
+                }
+            } else {
+                request.setAttribute("departmenstList", departmenstList);
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+                dispatcher.forward(request, response);
+            }
+
+        }
+
     }
 }
 

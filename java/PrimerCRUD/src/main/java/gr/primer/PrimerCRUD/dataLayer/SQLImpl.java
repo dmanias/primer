@@ -106,7 +106,7 @@ public class SQLImpl implements SQL {
                     String userCreationDate = result.getString(7);
 
                     user = new User(userId, firstName, lastName, email, password, departmentId, userCreationDate);
-                    break; //It gives only the first user
+                    break; //It gives only the first user in case of mistake
                 }
             }catch (SQLException ex) {
                 ex.printStackTrace();
@@ -115,7 +115,7 @@ public class SQLImpl implements SQL {
            return user;
         }
 
-        //SQL SELECT ALL
+        //SQL select all users from users table
         @Override
         public ArrayList<User> selectAllUsersSQL(){
             ArrayList<User> usersList= new ArrayList<>();
@@ -170,7 +170,7 @@ public class SQLImpl implements SQL {
         return deleted;
 
     }
-
+    //insert a new department to database
     @Override
     public boolean insertDepartmentSQL(String departmentName, int userId, String departmentCreationDate) {
         boolean inserted = false;
@@ -193,5 +193,98 @@ public class SQLImpl implements SQL {
         }
         dbConn.closeDbConnection(conn);
         return inserted;
+    }
+
+    //method for checking whether the table of departments is empty
+    @Override
+    public boolean departmentTableIsEmptySQL() {
+        boolean isEmpty=true;
+        int resultsCounter = 0;
+        conn = dbConn.openDbConnection();
+
+        try {
+            sql = "SELECT * From Departments";
+            statement = conn.prepareStatement(sql);
+            result = statement.executeQuery();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        try{
+            while (result.next()){
+                ++resultsCounter;
+            }
+            if (resultsCounter>0){
+                isEmpty=false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        dbConn.closeDbConnection(conn);
+        return isEmpty;
+    }
+    //Method for selecting department
+    @Override
+    public Department selectDepartmentSQL(int departmentIdInput){
+        Department department = null;
+        conn = dbConn.openDbConnection();
+
+        try{
+            sql = "SELECT * FROM Departments WHERE id=?";
+
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, departmentIdInput);
+            result = statement.executeQuery();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        try{
+            while(result.next()){
+                int    departmentId = (Integer) result.getObject(1);
+                String departmentName = result.getString(2);
+                int userId = (Integer) result.getObject(3);
+                String departmentCreationDate = result.getString(4);
+
+                department = new Department(departmentId, departmentName, userId, departmentCreationDate);
+                break; //It gives only the first department in case of mistake
+            }
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        dbConn.closeDbConnection(conn);
+        return department;
+    }
+
+    //SQL select all departments from departments table
+    @Override
+    public ArrayList<Department> selectAllDepartmentsSQL(){
+        ArrayList<Department> departmentsList= new ArrayList<>();
+        conn=dbConn.openDbConnection();
+
+        try {
+            sql = "SELECT * FROM Departments";
+
+            Statement statement = conn.createStatement();
+            result = statement.executeQuery(sql);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        try{
+            while(result.next()){
+                int    departmentId = (Integer) result.getObject(1);
+                String departmentName = result.getString(2);
+                int    userId = (Integer) result.getObject(3);
+                String departmentCreationDate = result.getString(4);
+
+                departmentsList.add(new Department(departmentId, departmentName, userId, departmentCreationDate));
+            }
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        dbConn.closeDbConnection(conn);
+        return departmentsList;
     }
 }

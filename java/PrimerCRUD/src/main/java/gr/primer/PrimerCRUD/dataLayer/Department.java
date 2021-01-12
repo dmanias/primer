@@ -8,7 +8,8 @@ public class Department {
     private String departmentCreationDate;
     private int userId;
 
-    public Department(String departmentName, int userId, String departmentCreationDate) {
+    public Department(int departmentId, String departmentName, int userId, String departmentCreationDate) {
+        this.departmentId=departmentId;
         this.departmentName = departmentName;
         this.departmentCreationDate = departmentCreationDate;
         this.userId = userId;

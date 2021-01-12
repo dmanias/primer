@@ -13,7 +13,7 @@ public class DaoImpl implements Dao {
 
     public DaoImpl(){  }
 
-    //It ask SQLimpl to save the user in the Db
+    //It asks SQLimpl to save the user in the Db
     @Override
     public boolean saveUser(String firstName, String lastName, String email, String password, int departmentId) {
 
@@ -42,7 +42,7 @@ public class DaoImpl implements Dao {
         }
         return user;
     }
-
+    //It asks SQLImpl to gring all users and it gives a list of them to ViewLogic
     @Override
     public ArrayList<User> getAllUsers() {
         ArrayList<User> usersList;
@@ -85,11 +85,49 @@ public class DaoImpl implements Dao {
         return inserted;
     }
 
+    //Is brings the selected user to the view by asking SQLimpl to Select from the user table
+    @Override
+    public Department getDepartment(int departmentId) {
+        boolean isEmpty=true;
+        Department department = null;
+
+        SQLImpl sqlQuestion=new SQLImpl();
+
+        //It check if there are any users by asking the SQLImpl to check if the user table is empty
+        isEmpty = sqlQuestion.departmentTableIsEmptySQL();
+
+        if (isEmpty){
+            department = null;
+        }else {
+            //If there are users then bring a user to ViewLogic
+            department = sqlQuestion.selectDepartmentSQL(departmentId);
+        }
+        return department;
+    }
+
+    //It asks SQLImpl to gring all users and it gives a list of them to ViewLogic
+    @Override
+    public ArrayList<Department> getAllDepartments() {
+        ArrayList<Department> departmentsList;
+        boolean isEmpty=true;
+        SQLImpl sqlQuestion=new SQLImpl();
+
+        //Checks if there are any users
+        isEmpty = sqlQuestion.departmentTableIsEmptySQL();
+
+        if (isEmpty){
+            departmentsList=null;
+        }else {
+            //if there are users it returns an array list of users
+            departmentsList = sqlQuestion.selectAllDepartmentsSQL();
+        }
+        return departmentsList;
+    }
+
     //Create date and cast it to string
     private String createDate() {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         return dateFormat.format(date);
     }
-
 }

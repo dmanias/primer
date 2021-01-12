@@ -10,18 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="632cc665-ae82-4ff1-9bcf-028dc531aff6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../database.sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../database.sql.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/DaoImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/DaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/DaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQLImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/SQLImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/dataLayer/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/logicLayer/ViewLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/logicLayer/ViewLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/viewLayer/FormValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gr/primer/PrimerCRUD/viewLayer/FormValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dataLayer/DaoImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/SQLImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gr/primer/PrimerCRUD/dataLayer/SQLImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PrimerCRUD-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/PrimerCRUD-1.0-SNAPSHOT/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Class" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -75,7 +74,33 @@
       <recent name="gr.primer.PrimerCRUD.dataLayer" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DaoImplTest">
+  <component name="RunManager" selected="JUnit.DaoImplTest (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DaoImplTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PrimerCRUD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gr.primer.PrimerCRUD.dataLayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="gr.primer.PrimerCRUD.dataLayer" />
+      <option name="MAIN_CLASS_NAME" value="gr.primer.PrimerCRUD.dataLayer.DaoImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PrimerCRUD" />
       <extension name="coverage">
@@ -137,8 +162,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DaoImplTest" />
+        <item itemvalue="JUnit.DaoImplTest (1)" />
         <item itemvalue="JUnit.SQLImplTest" />
+        <item itemvalue="JUnit.DaoImplTest" />
         <item itemvalue="Docker.Tomcat Container" />
       </list>
     </recent_temporary>
@@ -156,7 +182,7 @@
       <workItem from="1610387574226" duration="8119000" />
       <workItem from="1610408258519" duration="918000" />
       <workItem from="1610437744999" duration="11398000" />
-      <workItem from="1610450477794" duration="4322000" />
+      <workItem from="1610450477794" duration="9615000" />
     </task>
     <servers />
   </component>
